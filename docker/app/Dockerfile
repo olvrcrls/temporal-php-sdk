@@ -1,4 +1,4 @@
-FROM php:8.3-cli
+FROM php:8.4-cli
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   nano \
@@ -20,7 +20,7 @@ RUN pecl install protobuf-${PROTOBUF_VERSION} grpc \
     && docker-php-ext-enable protobuf grpc
 
 # Install Temporal CLI
-COPY --from=temporalio/admin-tools /usr/local/bin/tctl /usr/local/bin/tctl
+COPY --from=temporalio/admin-tools:1.28 /usr/local/bin/tctl /usr/local/bin/tctl
 
 # Install Composer
 COPY --from=composer /usr/bin/composer /usr/local/bin/composer
