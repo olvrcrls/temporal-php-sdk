@@ -12,7 +12,7 @@ server:
 temporal:
   address: "localhost:7233"
   activities:
-    num_workers: 1
+    num_workers: 5
   tls:
     key: 'certs/client.key'
     cert: 'certs/client.pem'
